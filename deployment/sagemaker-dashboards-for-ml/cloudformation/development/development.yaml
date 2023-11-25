@@ -229,13 +229,17 @@ Resources:
               sudo chmod +x /usr/bin/docker-credential-ecr-login
               # update jupyter-server-proxy (in JupyterSystemEnv env)
               source /home/ec2-user/anaconda3/bin/activate JupyterSystemEnv
-              pip install --upgrade pip==20.0.2
-              pip uninstall -y nbserverproxy || true
-              pip install --upgrade jupyter-server-proxy==1.3.2
-              systemctl restart jupyter-server --no-block
+
+              #pip install --upgrade pip==20.0.2
+              #pip uninstall -y nbserverproxy || true
+              #pip install --upgrade jupyter-server-proxy==1.3.2
+              #systemctl restart jupyter-server --no-block
+              echo "$(jupyter --version)"
+                      
               # create dashboard env
-              conda create -y --name dashboard python=3.6 pip ipykernel
+              conda create -y --name dashboard python=3.8 pip ipykernel
               source /home/ec2-user/anaconda3/bin/activate dashboard
+              
               python -m ipykernel install --user --name dashboard --display-name "conda_dashboard"
               pip install -r /home/ec2-user/SageMaker/requirements.dev.txt
       OnCreate:
