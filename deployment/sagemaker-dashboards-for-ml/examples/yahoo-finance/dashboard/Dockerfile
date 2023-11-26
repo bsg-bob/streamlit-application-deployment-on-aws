@@ -6,6 +6,7 @@ COPY requirements.txt requirements.txt
 COPY script/eda.py script/eda.py
 COPY script/config.py script/config.py
 
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 EXPOSE 80
